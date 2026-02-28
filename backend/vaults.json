@@ -1,0 +1,20 @@
+{
+  "0x26c74dbb12040851321940cb0de3e409ab6b5e74": {
+    "userWallet": "0x26c74dbb12040851321940cb0de3e409ab6b5e74",
+    "vaultWallet": "0x85e073d79C366B27f36Ec77f184B199E1151E18f",
+    "encryptedPrivateKey": "0x1d547e720181526bce845d0076532f4a240c2f1cea91c5b4c1957562e9133a21",
+    "depositBalance": 0.37108200000000013
+  },
+  "0xe47eb76983021bdbbb0e00d6be09973fd133c1b2": {
+    "userWallet": "0xe47eb76983021bdbbb0e00d6be09973fd133c1b2",
+    "vaultWallet": "0xCFfC3B17924BCe2859d54D42eec8e6691B70c09B",
+    "encryptedPrivateKey": "0x4565c78cd6c2f4ba971a4dab92c32202701bfebb19a71976dcdb24245b29f304",
+    "depositBalance": 0
+  },
+  "0x07b3c6dda94ec6c90edac49ae880c0fc12f952f3": {
+    "userWallet": "0x07b3c6dda94ec6c90edac49ae880c0fc12f952f3",
+    "vaultWallet": "0xAd9196460b99D078552d78b6dCdC337098872347",
+    "encryptedPrivateKey": "0xd80017556c6dab63f8bae830d1fad500a04a39ba270066f1f66359b741f5ce34",
+    "depositBalance": 0.7807700000000001
+  }
+}
