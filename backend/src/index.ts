@@ -31,5 +31,5 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 OmniFi Backend running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
