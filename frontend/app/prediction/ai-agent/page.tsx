@@ -5,13 +5,14 @@ import PredictionNav from '@/components/prediction/PredictionNav';
 import { useWeb3ModalAccount } from '@web3modal/ethers/react';
 
 // You will likely have this somewhere in your config, hardcoding to 3001 as that's your backend
-const API_URL = 'http://localhost:3001/api/arbitrage';
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/arbitrage`;
 
 export default function AIAgentDashboard() {
     const [stats, setStats] = useState<any>(null);
     const [insights, setInsights] = useState<any[]>([]);
     const [logs, setLogs] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     const { address } = useWeb3ModalAccount();
 
     // Settings State
@@ -48,6 +49,7 @@ export default function AIAgentDashboard() {
             if (logsData.success) setLogs(logsData.data);
         } catch (err) {
             console.error("Error fetching AI agent data:", err);
+            setError("Backend waking up (Render cold start)... please wait");
         } finally {
             setLoading(false);
         }
@@ -102,6 +104,9 @@ export default function AIAgentDashboard() {
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-8">
             {/* Top Navbar specifically for Prediction section */}
             <PredictionNav />
+
+            {loading && !error && <p className="text-yellow-400 text-center mb-4">Loading market data...</p>}
+            {error && <p className="text-yellow-400 text-center mb-4 bg-yellow-500/10 py-2 rounded-lg">{error}</p>}
 
             <div className="flex justify-between items-center mb-8">
                 <div>

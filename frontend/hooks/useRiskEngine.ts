@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const API_URL = 'http://localhost:3002/api/credit';
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/credit`;
 
 export function useRiskEngine() {
   const [creditScore, setCreditScore] = useState(0);

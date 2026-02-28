@@ -19,7 +19,7 @@ const bnbTestnet = {
 const metadata = {
   name: 'OmniFi',
   description: 'A decentralized prediction trading platform',
-  url: 'http://localhost:3000',
+  url: 'https://omnifi-predection-market.vercel.app',
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 };
 

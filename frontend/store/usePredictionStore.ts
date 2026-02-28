@@ -87,7 +87,7 @@ export const usePredictionStore = create<PredictionStore>()(
                         const payout = trade.amount * 2; // 2X payout
                         try {
                             // Call backend to add balance
-                            await fetch('http://localhost:3001/api/vault/add-balance', {
+                            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vault/add-balance`, {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ userAddress: trade.user, amount: payout })
@@ -134,7 +134,7 @@ export const usePredictionStore = create<PredictionStore>()(
 
                 try {
                     // Call backend to get or create custodial vault
-                    const res = await fetch('http://localhost:3001/api/vault/get-or-create-vault', {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vault/get-or-create-vault`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -166,7 +166,7 @@ export const usePredictionStore = create<PredictionStore>()(
                 const normalizedAddress = address.toLowerCase();
 
                 try {
-                    const res = await fetch('http://localhost:3001/api/vault/deduct', {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vault/deduct`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -197,7 +197,7 @@ export const usePredictionStore = create<PredictionStore>()(
                 const normalizedAddress = address.toLowerCase();
 
                 try {
-                    const res = await fetch('http://localhost:3001/api/vault/withdraw', {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vault/withdraw`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -234,7 +234,7 @@ export const usePredictionStore = create<PredictionStore>()(
 
                 try {
                     // Fetch balance from the backend system which is monitoring the vault
-                    const res = await fetch(`http://localhost:3001/api/vault/balance/${normalizedAddress}`);
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vault/balance/${normalizedAddress}`);
                     const data = await res.json();
 
                     if (typeof data.balance === 'number') {

@@ -43,7 +43,7 @@ export default function PortfolioPage() {
                 await syncBalanceFromChain(normalizedAddress);
 
                 // Fetch Agent Logs
-                const res = await fetch('http://localhost:3001/api/arbitrage/logs');
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/arbitrage/logs`);
                 const data = await res.json();
                 if (data.success && data.data) {
                     setAgentLogs(data.data);
