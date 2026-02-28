@@ -74,7 +74,16 @@ export default function Home() {
               <div className="relative z-10 glass-panel p-8 rounded-3xl border border-primary/20 shadow-2xl" style={{ background: 'rgba(52, 44, 24, 0.6)', backdropFilter: 'blur(12px)' }}>
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-primary to-amber-600 flex items-center justify-center text-background-dark font-black">785</div>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-primary to-amber-600 flex items-center justify-center text-background-dark font-black">
+                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-background-dark">
+                        <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="6" strokeDasharray="45 5" />
+                        <circle cx="45" cy="55" r="15" stroke="currentColor" strokeWidth="6" strokeDasharray="15 5" />
+                        <path d="M45 5 V20 M45 90 V105 M-5 55 H10 M80 55 H95" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+
+                        <path d="M15 80 L35 60 L50 70 L85 20" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M65 20 H85 V40" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <div><div className="text-xs text-slate-400 font-bold uppercase">Your Portfolio</div><div className="text-white font-bold">+12.5% This Week</div></div>
                   </div>
                   <div className="text-primary text-sm font-bold">Top 5% Trader</div>
