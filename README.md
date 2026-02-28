@@ -1,239 +1,213 @@
-# OmniFi - Web3 Super App on BNB Chain
+# 🔮 OmniFi Prediction Market — BNB Chain
 
-🚀 A full-stack decentralized finance platform combining Prediction Markets, Token Launchpad, and Smart-Collateral BNPL Credit System.
+🚀 A full-stack decentralized **Prediction Market platform** built on **BNB Smart Chain Testnet** with an integrated **AI Arbitrage Trading Agent**.
 
-## 🌟 Features
+Trade the future using YES/NO markets and earn rewards when you are right.
 
-### 🔮 Prediction Markets
-- Trade on real-world and crypto events (Yes/No markets)
-- Use wallet funds or platform credit
-- Real-time odds calculation
-- AI-driven insights and arbitrage detection
+---
 
-### 🚀 Token Launchpad
-- Launch tokens with progressive liquidity unlock (PLU)
-- Automated liquidity pool creation
-- Milestone-based unlocking
-- Project contribution tracking
+# 🌟 Features
 
-### 💳 Smart-Collateral BNPL Credit
-- Deposit BNB as collateral
-- Borrow against collateral (150% ratio)
-- AI-powered credit scoring
-- Health factor monitoring
-- Automatic liquidation protection
+## 🔮 Prediction Markets
+- Trade real-world and crypto events (YES / NO markets)
+- Pool-based automated odds calculation
+- On-chain transparent reward distribution
+- Low-fee trading on BNB Chain
+- Real-time market updates
+- Portfolio & PnL tracking
 
-### 📊 Unified Dashboard
-- Real-time portfolio tracking
-- Credit score analytics
+## 🤖 AI Arbitrage Agent
+- Monitors market price inefficiencies
+- Detects arbitrage opportunities
+- Executes automated trades
+- Provides AI trading insights
+- Customizable risk & trading settings
+
+## 📊 Portfolio Dashboard
+- Wallet balance & deposit balance
+- Active positions tracking
+- Win / Loss statistics
+- Profit & Loss (PnL)
+- Claimable rewards
 - Transaction history
-- Multi-module overview
 
-## 🏗️ Architecture
+---
 
-```
+# 🏗️ Architecture
+
 omnifi/
-├── contracts/          # Solidity smart contracts
-│   ├── CollateralVault.sol
-│   ├── RiskEngine.sol
-│   ├── PredictionMarket.sol
-│   ├── Launchpad.sol
-│   └── OmniAMM.sol
-├── frontend/           # Next.js + TypeScript UI
-│   ├── app/           # Pages (prediction, launchpad, bnpl, dashboard)
-│   ├── components/    # React components
-│   └── hooks/         # Custom blockchain hooks
-└── backend/           # Node.js + TypeScript API
-    └── src/
-        ├── routes/    # API endpoints
-        ├── services/  # Business logic
-        └── blockchain/ # Contract interactions
-```
+├── contracts/          # Solidity smart contracts  
+│   └── PredictionMarket.sol  
+├── frontend/           # Next.js + TypeScript UI  
+│   ├── app/  
+│   ├── components/  
+│   └── hooks/  
+└── backend/            # Node.js + TypeScript Arbitrage Bot  
+    └── src/  
+        ├── routes/  
+        ├── services/  
+        └── blockchain/  
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
+# 🚀 Quick Start
+
+## Prerequisites
 - Node.js v18+
 - MetaMask wallet
-- BNB Testnet tokens ([Get from faucet](https://testnet.bnbchain.org/faucet-smart))
+- BNB Testnet tokens (faucet)
 
-### 1. Deploy Smart Contracts
+---
 
-```bash
-cd contracts
-npm install
-npx hardhat compile
+# ⛓ 1️⃣ Deploy Smart Contracts
 
-# Deploy to BNB Testnet
-npx hardhat run scripts/deploy.ts --network bnbTestnet
+cd contracts  
+npm install  
+npx hardhat compile  
 
-# Save the deployed contract addresses
-```
+Deploy to BNB Testnet:
 
-### 2. Configure Frontend
+npx hardhat run scripts/deploy.ts --network bnbTestnet  
 
-```bash
-cd frontend
-npm install
+Save deployed contract address.
 
-# Update lib/contracts.ts with deployed addresses
-# Update contract ABIs in lib/abi/
+---
 
-npm run dev
-```
+# 🖥 2️⃣ Configure Frontend
 
-Frontend runs on `http://localhost:3000`
+cd frontend  
+npm install  
 
-### 3. Start Backend
+Create `.env.local`:
 
-```bash
-cd backend
-npm install
+NEXT_PUBLIC_RPC_URL=https://data-seed-prebsc-1-s1.binance.org:8545  
+NEXT_PUBLIC_CONTRACT_ADDRESS=PASTE_DEPLOYED_ADDRESS  
 
-# Configure .env file:
-# - Add your private key
-# - Add deployed contract addresses
-# - Set RPC_URL for BNB Testnet
+Run frontend:
 
-npm run dev
-```
+npm run dev  
 
-Backend runs on `http://localhost:3001`
+Frontend runs at:  
+http://localhost:3000  
 
-## 📝 Smart Contract Details
+---
 
-### CollateralVault
-- Manages user collateral deposits
-- Handles borrowing with 150% collateral ratio
-- Liquidation at 120% threshold
-- Integrates with RiskEngine for credit scores
+# 🤖 3️⃣ Start AI Arbitrage Bot
 
-### RiskEngine
-- Stores on-chain credit scores (0-1000)
-- Provides credit multipliers
-- Authorized backend updates
+cd backend  
+npm install  
 
-### PredictionMarket
-- Create Yes/No prediction markets
-- Pool-based odds calculation
+Create `.env`:
+
+RPC_URL=https://data-seed-prebsc-1-s1.binance.org:8545  
+PRIVATE_KEY=YOUR_WALLET_PRIVATE_KEY  
+CONTRACT_ADDRESS=PASTE_DEPLOYED_ADDRESS  
+
+BOT_TRADE_AMOUNT=0.001  
+ARBITRAGE_THRESHOLD=0.05  
+
+Run bot:
+
+npm run start  
+
+The bot will:
+- Scan markets every 30 seconds
+- Detect arbitrage opportunities
+- Execute automated trades
+
+---
+
+# 📝 Smart Contract Details
+
+## PredictionMarket.sol
+Core features:
+- Create YES/NO markets
+- Pool-based betting
 - Automated payout distribution
-- Time-locked resolution
+- Time-locked market resolution
 
-### Launchpad
-- Token sale management
-- Progressive liquidity unlock
-- Contribution tracking
-- Refund mechanism
+Core Functions:
+- createMarket()
+- buyYes()
+- buyNo()
+- resolveMarket()
+- claim()
 
-### OmniAMM
-- Simple constant product AMM
-- Liquidity pool management
-- Token swapping
+---
 
-## 🎨 Frontend Features
+# 📊 How Prediction Markets Work
 
-- **Dark Theme UI**: Modern, responsive design
-- **Wallet Integration**: MetaMask connection
-- **Real-time Updates**: Live data from blockchain
-- **Multi-page Navigation**: Seamless routing
-- **Interactive Charts**: Visual data representation
+1. Users bet BNB on YES or NO  
+2. Funds go into liquidity pools  
+3. Market resolves  
+4. Winners share the total pool  
 
-### Navigation Component (Navbar.tsx)
-- **Fixed Header**: Sticky navigation with scroll-based transparency effects
-- **Glassmorphism Design**: Backdrop blur with semi-transparent background
-- **Active Route Highlighting**: Visual indicator for current page with glowing dot
-- **Animated Logo**: Gradient logo with hover scale effects and glow shadows
-- **Responsive Layout**: Pill-shaped navigation group with smooth transitions
-- **Dynamic Styling**: Changes appearance on scroll (background opacity, padding, border)
-- **Route Detection**: Uses Next.js usePathname for active state management
+Payout Formula:
 
-## 🤖 Backend Services
+Payout = (User Bet / Total Winning Bets) × Total Pool
 
-### Wallet Analyzer
-- Analyzes on-chain wallet activity
-- Calculates transaction patterns
-- Determines wallet age and risk level
+---
 
-### Credit Engine
-- AI-powered credit scoring algorithm
-- Factors: balance, tx count, wallet age, risk
-- Score range: 300-1000
-- Dynamic credit multipliers
+# 🤖 Backend Services
 
-### Arbitrage Bot
-- Monitors prediction market opportunities
-- Detects price inefficiencies
-- Automated trade execution
+## Arbitrage Bot
+- Fetches on-chain market prices
+- Simulates external market prices
+- Detects price gaps
+- Executes buyYes / buyNo trades
+- Provides analytics API
 
-## 🔐 Security Features
+---
 
-- Collateral ratio enforcement
-- Liquidation protection
-- Access control on contracts
-- Private key management
-- Input validation
+# 🌐 Network Configuration
 
-## 🧪 Testing
+BNB Smart Chain Testnet  
+Chain ID: 97  
+RPC: https://data-seed-prebsc-1-s1.binance.org:8545  
+Explorer: https://testnet.bscscan.com  
 
-```bash
-# Test contracts
-cd contracts
-npx hardhat test
+---
 
-# Test coverage
-npx hardhat coverage
-```
+# 🛠️ Tech Stack
 
-## 📊 Credit Scoring Algorithm
+Blockchain:
+- Solidity
+- Hardhat
 
-```
-Base Score: 300
-+ Balance Factor (0-200 points)
-+ Transaction Count (0-200 points)
-+ Wallet Age (0-200 points)
-+ Risk Level (0-100 points)
-= Total Score (300-1000)
-```
+Frontend:
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- ethers.js
 
-**Credit Multipliers:**
-- Score ≥ 800: 1.5x borrowing power
-- Score ≥ 600: 1.25x borrowing power
-- Score ≥ 400: 1.1x borrowing power
-- Score < 400: 1.0x borrowing power
+Backend:
+- Node.js
+- Express
+- TypeScript
 
-## 🌐 Network Configuration
+Network:
+- BNB Smart Chain Testnet
 
-**BNB Smart Chain Testnet:**
-- Chain ID: 97
-- RPC: https://data-seed-prebsc-1-s1.binance.org:8545
-- Explorer: https://testnet.bscscan.com
+---
 
-## 📱 Usage Flow
+# 🧪 Testing
 
-1. **Connect Wallet** → MetaMask on BNB Testnet
-2. **Deposit Collateral** → BNPL Credit page
-3. **Get Credit Score** → Backend analyzes wallet
-4. **Borrow Funds** → Use credit across platform
-5. **Trade Predictions** → Use wallet or credit
-6. **Invest in Launchpad** → Support new projects
-7. **Monitor Dashboard** → Track all activities
+cd contracts  
+npx hardhat test  
 
-## 🛠️ Tech Stack
+---
 
-- **Blockchain**: Solidity 0.8.20, Hardhat
-- **Frontend**: Next.js 14, React 18, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Express, TypeScript
-- **Web3**: ethers.js v6
-- **Network**: BNB Smart Chain Testnet
+# 👨‍💻 Hackathon Project
+Built for BNB Chain Hackathon 🚀
 
-## 📄 License
+---
 
+# 📄 License
 MIT License
 
-## 🤝 Contributing
+---
 
-Contributions welcome! Please open an issue or submit a PR.
-
-## ⚠️ Disclaimer
-
-This is a testnet demonstration project. Do not use with real funds on mainnet without proper audits.
+# ⚠️ Disclaimer
+This is a testnet demonstration project.  
+Do NOT use real funds on mainnet without proper audits.
